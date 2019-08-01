@@ -5,20 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Hello</title>
-	<script>
-		(function(name,path,ctx){ctx[name]=ctx[name]||{ready:function(fn){var h=document.getElementsByTagName('head')[0],s=document.createElement('script'),w=window,loaded;s.onload=s.onerror=s.onreadystatechange=function(){if((s.readyState&&!(/^c|loade/.test(s.readyState)))||loaded){return}s.onload=s.onreadystatechange=null;loaded=1;ctx[name].ready(fn)};s.async=1;s.src=path;h.parentNode.insertBefore(s,h)}}})
-		('KeenTracking', 'https://cdn.jsdelivr.net/npm/keen-tracking@4/dist/keen-tracking.min.js', this);
-	  
-		KeenTracking.ready(function(){
-		  const client = new KeenTracking({
-			projectId: '5cad592bc9e77c0001cf8181',
-			writeKey: '017B9A9FF832B9773ED64B88D4FE0638E0318A1289EAC4783890E8FCDEEDF8969E504D04EBAFBC83FE6882001E0613C4BE6BD1531EB234020119940A66E892959756BEA224244FE5A68510F01771DEB1F4D81BC898E012D02966D6839F872D15'
-		  });
-	  
-		  // Record events automatically
-		  client.initAutoTracking();
-		});
-	</script>
 </head>
 <body>
 	<div class="main-container">
