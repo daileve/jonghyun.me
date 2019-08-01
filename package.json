@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx webpack; node initialize.js",
     "dev": "npx webpack-dev-server",
     "build": "webpack --config webpack.config.js -p",
     "deploy": "node ./deploy.js"
