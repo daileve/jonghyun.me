@@ -1,0 +1,29 @@
+.mainWrap {
+  padding: 5em;
+}
+
+.welcomeHeader {
+  font-weight: 600;
+  font-size: 3em;
+}
+
+.subHeader {
+  font-weight: 500;
+  font-size: 1.5em;
+  margin-top: 50px;
+  color: #00a3ff;
+}
+
+.mainWrap article div {
+  margin: 10px 0;
+}
+
+@media (max-width: 1000px) {
+  .mainWrap {
+    padding: 2.5em;
+  }
+
+  .welcomeHeader {
+    font-size: 2.2em;
+  }
+}
