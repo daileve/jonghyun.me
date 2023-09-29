@@ -20,7 +20,7 @@ export default function Home() {
       </article>
       <article>
         <header className='subHeader'><TypingAnimatedLetters start={typingIdx === 4} onDone={increaseTypingIdx}>Programming or Markup Languages</TypingAnimatedLetters></header>
-        <div><TypingAnimatedLetters start={typingIdx === 5} onDone={increaseTypingIdx}>Mostly usage: HTML, CSS, Javascript, Typescript, Less</TypingAnimatedLetters></div>
+        <div><TypingAnimatedLetters start={typingIdx === 5} onDone={increaseTypingIdx}>Mostly usage: HTML, CSS, Javascript (Typescript), Less</TypingAnimatedLetters></div>
         <div><TypingAnimatedLetters start={typingIdx === 6} onDone={increaseTypingIdx}>Not mostly usage: Ruby, Python, PHP, Java, C#</TypingAnimatedLetters></div>
       </article>
       <article>
