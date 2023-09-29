@@ -20,13 +20,13 @@ export default function Home() {
       </article>
       <article>
         <header className='subHeader'><TypingAnimatedLetters start={typingIdx === 4} onDone={increaseTypingIdx}>Programming or Markup Languages</TypingAnimatedLetters></header>
-        <div><TypingAnimatedLetters start={typingIdx === 5} onDone={increaseTypingIdx}>Mostly usage: HTML, CSS, Javascript (Typescript), Less</TypingAnimatedLetters></div>
-        <div><TypingAnimatedLetters start={typingIdx === 6} onDone={increaseTypingIdx}>Not mostly usage: Ruby, Python, PHP, Java, C#</TypingAnimatedLetters></div>
+        <div><TypingAnimatedLetters start={typingIdx === 5} onDone={increaseTypingIdx}>Mostly used: HTML, CSS, Javascript (Typescript), Less</TypingAnimatedLetters></div>
+        <div><TypingAnimatedLetters start={typingIdx === 6} onDone={increaseTypingIdx}>Not mostly used: Ruby, Python, PHP, Java, C#, Swift</TypingAnimatedLetters></div>
       </article>
       <article>
         <header className='subHeader'><TypingAnimatedLetters start={typingIdx === 7} onDone={increaseTypingIdx}>Libraries</TypingAnimatedLetters></header>
-        <div><TypingAnimatedLetters start={typingIdx === 8} onDone={increaseTypingIdx}>Mostly usage: Angular, Webpack, Yarn, Nginx, Docker, Node.js, Redux &amp; NgRx</TypingAnimatedLetters></div>
-        <div><TypingAnimatedLetters start={typingIdx === 9} onDone={increaseTypingIdx}>Not mostly usage: React, Rails, Grunt, Esbuild, Kubernetes, Next.js</TypingAnimatedLetters></div>
+        <div><TypingAnimatedLetters start={typingIdx === 8} onDone={increaseTypingIdx}>Mostly used: Angular, Webpack, Yarn, Nginx, Docker, Node.js, Redux &amp; NgRx</TypingAnimatedLetters></div>
+        <div><TypingAnimatedLetters start={typingIdx === 9} onDone={increaseTypingIdx}>Not mostly used: React, Rails, Grunt, Esbuild, Kubernetes, Next.js, Electron</TypingAnimatedLetters></div>
       </article>
       <article>
         <header className='subHeader'><TypingAnimatedLetters start={typingIdx === 10} onDone={increaseTypingIdx}>Tools</TypingAnimatedLetters></header>
@@ -34,7 +34,7 @@ export default function Home() {
       </article>
       <article>
         <header className='subHeader'><TypingAnimatedLetters start={typingIdx === 12} onDone={increaseTypingIdx}>Experiences</TypingAnimatedLetters></header>
-        <div><TypingAnimatedLetters start={typingIdx === 13} onDone={increaseTypingIdx}>Monorepo, Frontend library migration, RESTful API, GraphQL</TypingAnimatedLetters></div>
+        <div><TypingAnimatedLetters start={typingIdx === 13} onDone={increaseTypingIdx}>Monorepo, Frontend base library migration, RESTful API, GraphQL</TypingAnimatedLetters></div>
       </article>
       <article>
         <header className='subHeader'><TypingAnimatedLetters start={typingIdx === 14} onDone={increaseTypingIdx}>Languages</TypingAnimatedLetters></header>
