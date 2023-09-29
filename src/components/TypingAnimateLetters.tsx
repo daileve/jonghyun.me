@@ -2,7 +2,7 @@
 
 import { PropsWithChildren, useEffect, useRef, useState } from 'react';
 
-const TYPING_DELAY = 10;
+const TYPING_DELAY = 8;
 
 export default function TypingAnimatedLetters({start, children, onDone}: PropsWithChildren<{start: boolean, onDone?: () => void}>) {
     const lettersRef = useRef(children!.toString());
