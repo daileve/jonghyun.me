@@ -16,7 +16,7 @@ export default function Home() {
       <article>
         <header className='subHeader'><TypingAnimatedLetters start={typingIdx === 1} onDone={increaseTypingIdx}>Information</TypingAnimatedLetters></header>
         <div><TypingAnimatedLetters start={typingIdx === 2} onDone={increaseTypingIdx}>Software Engineer &amp; Frontend Developer</TypingAnimatedLetters></div>
-        <div><TypingAnimatedLetters start={typingIdx === 3} onDone={increaseTypingIdx}>Jonghyun Kim (Daileve)</TypingAnimatedLetters></div>
+        <div><TypingAnimatedLetters start={typingIdx === 3} onDone={increaseTypingIdx}>Jonghyun Kim (daileve)</TypingAnimatedLetters></div>
       </article>
       <article>
         <header className='subHeader'><TypingAnimatedLetters start={typingIdx === 4} onDone={increaseTypingIdx}>Programming or Markup Languages</TypingAnimatedLetters></header>
