@@ -26,7 +26,7 @@ export default function Home() {
       <article>
         <header className='subHeader'><TypingAnimatedLetters start={typingIdx === 7} onDone={increaseTypingIdx}>Libraries</TypingAnimatedLetters></header>
         <div><TypingAnimatedLetters start={typingIdx === 8} onDone={increaseTypingIdx}>Mostly used: Angular, Webpack, Yarn, Nginx, Docker, Node.js, Redux &amp; NgRx</TypingAnimatedLetters></div>
-        <div><TypingAnimatedLetters start={typingIdx === 9} onDone={increaseTypingIdx}>Not mostly used: React, Rails, Grunt, Esbuild, Kubernetes, Next.js, Electron</TypingAnimatedLetters></div>
+        <div><TypingAnimatedLetters start={typingIdx === 9} onDone={increaseTypingIdx}>Not mostly used: React, Rails, Grunt, Esbuild, Kubernetes, Next.js, Electron, Turborepo</TypingAnimatedLetters></div>
       </article>
       <article>
         <header className='subHeader'><TypingAnimatedLetters start={typingIdx === 10} onDone={increaseTypingIdx}>Tools</TypingAnimatedLetters></header>
@@ -35,11 +35,12 @@ export default function Home() {
       <article>
         <header className='subHeader'><TypingAnimatedLetters start={typingIdx === 12} onDone={increaseTypingIdx}>Experiences</TypingAnimatedLetters></header>
         <div><TypingAnimatedLetters start={typingIdx === 13} onDone={increaseTypingIdx}>Monorepo, Frontend base library migration, RESTful API, GraphQL</TypingAnimatedLetters></div>
+        <div><TypingAnimatedLetters start={typingIdx === 14} onDone={increaseTypingIdx}>Conventional Commits</TypingAnimatedLetters></div>
       </article>
       <article>
-        <header className='subHeader'><TypingAnimatedLetters start={typingIdx === 14} onDone={increaseTypingIdx}>Languages</TypingAnimatedLetters></header>
-        <div><TypingAnimatedLetters start={typingIdx === 15} onDone={increaseTypingIdx}>Korean as native level</TypingAnimatedLetters></div>
-        <div><TypingAnimatedLetters start={typingIdx === 16} onDone={increaseTypingIdx}>English as intermediate level</TypingAnimatedLetters></div>
+        <header className='subHeader'><TypingAnimatedLetters start={typingIdx === 15} onDone={increaseTypingIdx}>Languages</TypingAnimatedLetters></header>
+        <div><TypingAnimatedLetters start={typingIdx === 16} onDone={increaseTypingIdx}>Korean as native level</TypingAnimatedLetters></div>
+        <div><TypingAnimatedLetters start={typingIdx === 17} onDone={increaseTypingIdx}>English as intermediate level</TypingAnimatedLetters></div>
       </article>
     </main>
   )
