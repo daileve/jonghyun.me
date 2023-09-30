@@ -35,7 +35,7 @@ export default function Home() {
       <article>
         <header className='subHeader'><TypingAnimatedLetters start={typingIdx === 12} onDone={increaseTypingIdx}>Experiences</TypingAnimatedLetters></header>
         <div><TypingAnimatedLetters start={typingIdx === 13} onDone={increaseTypingIdx}>Monorepo, Frontend base library migration, RESTful API, GraphQL</TypingAnimatedLetters></div>
-        <div><TypingAnimatedLetters start={typingIdx === 14} onDone={increaseTypingIdx}>Conventional Commits</TypingAnimatedLetters></div>
+        <div><TypingAnimatedLetters start={typingIdx === 14} onDone={increaseTypingIdx}>Conventional Commits, SSL</TypingAnimatedLetters></div>
       </article>
       <article>
         <header className='subHeader'><TypingAnimatedLetters start={typingIdx === 15} onDone={increaseTypingIdx}>Languages</TypingAnimatedLetters></header>
