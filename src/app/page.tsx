@@ -5,12 +5,14 @@ import { useCallback, useState } from 'react';
 import TypingAnimatedLetters from '../components/TypingAnimateLetters';
 
 import './page.css';
+import ParticleBackground from '../components/ParticleBackground';
 
 export default function Home() {
   const [typingIdx, setTypingIdx] = useState(0);
   const increaseTypingIdx = useCallback(() => setTypingIdx(idx => idx += 1), []);
 
-  return (
+  return <>
+    <div className='particleBackground'><ParticleBackground></ParticleBackground></div>
     <main className='mainWrap'>
       <header className='welcomeHeader'><TypingAnimatedLetters start={typingIdx === 0} onDone={increaseTypingIdx}>Welcome. 👋</TypingAnimatedLetters></header>
       <article>
@@ -43,5 +45,5 @@ export default function Home() {
         <div><TypingAnimatedLetters start={typingIdx === 17} onDone={increaseTypingIdx}>English as intermediate level</TypingAnimatedLetters></div>
       </article>
     </main>
-  )
+  </>;
 }
