@@ -26,7 +26,7 @@ export const createVector = (idx: number, min: Position, max: Position, move_tim
     }
 
     function getRandomVector() {
-        const rand_array = [0.5, -0.5];
+        const rand_array = [0.25, -0.25];
 
         return {
             vector_x: rand_array[Math.round(Math.random())],
@@ -76,11 +76,11 @@ export const createVector = (idx: number, min: Position, max: Position, move_tim
     };
 }
 
-export const createVectors = (min: Position, max: Position, count: number): Vector[] => {
+export const createVectors = (min: Position, max: Position, count: number, radius: number): Vector[] => {
     const vectors = [];
     
     for(let i=1; i<=count; i++) {
-        vectors.push(createVector(i, min, max, getRandomInt(30, 100), 100));
+        vectors.push(createVector(i, min, max, getRandomInt(30, 100), radius));
     }
 
     return vectors;

@@ -1,6 +1,6 @@
 import { memo, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { createVectors } from '../../utils/vector';
-import { Position, Vector } from '../../interfaces/vector-interfaces';
+import { Vector } from '../../interfaces/vector-interfaces';
 
 import './ParticleBackground.css';
 
@@ -13,20 +13,18 @@ interface Size {
 
 export default memo(function ParticleBackground() {
     const animationRef = useRef(0);
-    const svgRef = useRef<SVGSVGElement>(null);
+    const canvasRef = useRef<HTMLCanvasElement>(null);
     const resizeTimer = useRef<number>();
     const vectors =  useRef<Vector[]>([]);
-    const size = useRef<Size>({width: 0, height: 0});
 
-    const [positions, setPos] = useState<(
-        {
-            base: Position
-            center: Position
-            positions_in_radius: {base: Position; center: Position}[]
-        }
-    )[]>([]);
+    const [size, setSize] = useState<Size>({width: 0, height: 0});
 
     const animate = useCallback(() => {
+        const ctx = canvasRef.current!.getContext("2d");
+        ctx!.strokeStyle = "#555";
+        ctx!.fillStyle = "#333";
+        ctx!.clearRect(0, 0, size.width, size.height);
+
         vectors.current.forEach(vector => {
             vector.move();
         });
@@ -35,26 +33,39 @@ export default memo(function ParticleBackground() {
             vector.setVectorsInRadius(vectors.current);
         });
 
-        setPos(
-            vectors.current.map(v => ({
-                base: v.getPos(),
-                center: v.getCenterPos(),
-                positions_in_radius:
-                    // v.getVectorsInRadius().map(vector => ({base: vector.getPos(), center: vector.getCenterPos()}))
-                    Array.from(
-                        new Set(v.getVectorsInRadius().map(vector => ({base: vector.getPos(), center: vector.getCenterPos()})).map(p => JSON.stringify(p))),
-                    ).map(p => JSON.parse(p))
-            })),
-        );
+        vectors.current.forEach(v => {
+            const center_pos = v.getCenterPos();
+            const positions_in_radius = Array.from(
+                new Set(v.getVectorsInRadius().map(vector => ({base: vector.getPos(), center: vector.getCenterPos()})).map(p => JSON.stringify(p))),
+            ).map(p => JSON.parse(p));
+
+            positions_in_radius.forEach(pos => {
+                ctx!.beginPath();
+                ctx!.moveTo(center_pos.x, center_pos.y);
+                ctx!.lineTo(pos.center.x, pos.center.y);
+                ctx!.stroke();
+            });
+        }),
+
+        vectors.current.forEach(v => {
+            const base_pos = v.getPos();
+
+            ctx!.fillRect(base_pos.x, base_pos.y, 5, 5);
+        });
 
         animationRef.current = requestAnimationFrame(animate);
-    }, []);
+    }, [size]);
 
     useEffect(() => {
         animationRef.current = requestAnimationFrame(animate);
 
         return () => cancelAnimationFrame(animationRef.current);
     }, [animate]);
+
+    useEffect(() => {
+        const radius = size.width > 700 ? 80 : 50;
+        vectors.current = createVectors({x: 0, y: 0}, {x: size.width, y: size.height}, (size.width + size.height) / 30, radius);
+    }, [size]);
 
     useLayoutEffect(() => {
         window.addEventListener('resize', () => {
@@ -63,34 +74,14 @@ export default memo(function ParticleBackground() {
             }
 
             resizeTimer.current = window.setTimeout(() => {
-                size.current = {width: svgRef.current!.clientWidth, height: svgRef.current!.clientHeight};
-                vectors.current = createVectors({x: 0, y: 0}, {x: size.current.width, y: size.current.height}, (size.current.width + size.current.height) / 40);
+                setSize({width: canvasRef.current!.clientWidth, height: canvasRef.current!.clientHeight});
             }, 500);
         });
 
-        size.current = {width: svgRef.current!.clientWidth, height: svgRef.current!.clientHeight};
-        vectors.current = createVectors({x: 0, y: 0}, {x: svgRef.current!.clientWidth, y: svgRef.current!.clientHeight}, (svgRef.current!.clientWidth + svgRef.current!.clientHeight) / 40);
+        setSize({width: canvasRef.current!.clientWidth, height: canvasRef.current!.clientHeight});
     }, []);
 
     return <>
-        <svg ref={svgRef} className='particleSVGWrap'>
-            <defs>
-                <filter id="f1" x="0" y="0">
-                    <feGaussianBlur in='SourceGraphic' stdDeviation='3' />
-                </filter>
-            </defs>
-            <g stroke="#999">
-                {positions.map(({center, positions_in_radius}, i) => 
-                    positions_in_radius.map((pos, j) => {
-                        return <line key={`${i}_${j}_line`} x1={center.x} x2={pos.center.x} y1={center.y} y2={pos.center.y} />;
-                    })
-                )}
-            </g>
-            <g fill="#888">
-                {positions.map(({base}, i) => {
-                    return <rect key={i} x={base.x} y={base.y} width={RECT_SIZE} height={RECT_SIZE} filter='url(#f1)' />;
-                })}
-            </g>
-        </svg>
+        <canvas ref={canvasRef} width={size.width} height={size.height}></canvas>
     </>;
 });
