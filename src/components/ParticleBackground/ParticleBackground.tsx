@@ -4,8 +4,6 @@ import { Vector } from '../../interfaces/vector-interfaces';
 
 import './ParticleBackground.css';
 
-const RECT_SIZE = 5;
-
 interface Size {
     width: number;
     height: number;
